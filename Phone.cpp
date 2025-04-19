@@ -9,8 +9,10 @@ Phone::Phone(const Phone& other)
     : Device(other), simCount(other.simCount), batteryLevel(other.batteryLevel),
       phoneNumber(other.phoneNumber), phoneApp(other.phoneApp) {}
 
-Phone& Phone::operator=(const Phone& other) {
-    if (this != &other) {
+Phone& Phone::operator=(const Phone& other)
+{
+    if (this != &other)
+    {
         Device::operator=(other);
         simCount = other.simCount;
         batteryLevel = other.batteryLevel;
@@ -28,12 +30,15 @@ int Phone::GetSimCount() const { return simCount; }
 void Phone::SetPhoneNumber(const string& number) { phoneNumber = number; }
 void Phone::SetPhoneApp(const string& app) { phoneApp = app; }
 
-void Phone::DrainBattery(int percent) {
+void Phone::DrainBattery(int percent)
+{
     batteryLevel = max(0, batteryLevel - percent);
 }
 
-void Phone::Call() {
-    if (phoneNumber.empty()) {
+void Phone::Call()
+{
+    if (phoneNumber.empty())
+    {
         cout << name << " has no phone number set!" << endl;
         return;
     }
@@ -41,8 +46,10 @@ void Phone::Call() {
     DrainBattery();
 }
 
-void Phone::InstallApp() {
-    if (phoneApp.empty()) {
+void Phone::InstallApp()
+{
+    if (phoneApp.empty())
+    {
         cout << name << " has no app name set!" << endl;
         return;
     }
@@ -50,17 +57,20 @@ void Phone::InstallApp() {
     DrainBattery();
 }
 
-void Phone::ClearRAM() {
+void Phone::ClearRAM()
+{
     cout << name << " is clearing RAM..." << endl;
     DrainBattery();
 }
 
-void Phone::Charge() {
+void Phone::Charge()
+{
     batteryLevel = 100;
     cout << name << " charged to 100%." << endl;
 }
 
-void Phone::ShowInfo() const {
+void Phone::ShowInfo() const
+{
     cout << "--- Phone Info ---" << endl;
     cout << "Name: " << name << endl;
     cout << "Year: " << year << endl;
