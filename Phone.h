@@ -7,12 +7,13 @@ private:
     int batteryLevel;
     string phoneNumber;
     string phoneApp;
+    string* os;
 
     void DrainBattery(int percent = 2);
 
 public:
     Phone();
-    Phone(const string& name, int year, double weight, const string& os, int simCount);
+    Phone(const char* name, int year, double weight, const string& os, int simCount);
     Phone(const Phone& other);
     Phone& operator=(const Phone& other);
     ~Phone();
@@ -22,6 +23,8 @@ public:
 
     void SetPhoneNumber(const string& number);
     void SetPhoneApp(const string& app);
+    void SetOS(const string& os);
+    string GetOS() const;
 
     void Call();
     void InstallApp();
